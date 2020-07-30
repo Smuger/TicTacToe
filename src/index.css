@@ -35,6 +35,25 @@ ol, ul {
     width: 8rem;
     transition: all 0.5s ease;
 }
+
+@media(max-width:382px){
+    .square {
+        background: #fff;
+        border: 1px solid #000;
+        float: left;
+        font-size: 6rem;
+        font-weight: bold;
+        line-height: 34px;
+        height: 5rem;
+        margin-right: -1px;
+        margin-top: -1px;
+        padding: 0;
+        text-align: center;
+        width: 5rem;
+        transition: all 0.5s ease;
+    }
+    
+}
 .function-button {
     background: #fff;
     color: #000;
