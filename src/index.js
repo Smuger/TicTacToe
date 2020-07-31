@@ -128,12 +128,12 @@ class Board extends React.Component {
     constructor(props) {
         super(props);
         this.noLinesDrawnYet = true;
+        this.clicks= 0;
         this.state = {
             move: 0,
             squares: Array(9).fill(null),
             squaresHistory: Array(9).fill(null),
             xIsNext: true,
-            clicks: 0,
             isHiddenLineACrossLeftRight: true,
             isHiddenLineACrossRightLeft: true,
             isHiddenLineFirstRow: true,
@@ -217,8 +217,7 @@ class Board extends React.Component {
     }
 
     handleClick(i) {
-        let clicks = this.state.clicks;
-        clicks++;
+        this.clicks++;
         const squares = this.state.squares.slice();
         const squaresHistory = this.state.squaresHistory.slice();
         let move = this.state.move;
@@ -235,7 +234,6 @@ class Board extends React.Component {
         squares[i] = this.state.xIsNext ? x : o;
 
         this.setState({
-            clicks: clicks,
             move: move,
             squares: squares,
             squaresHistory: squaresHistory,
@@ -246,6 +244,9 @@ class Board extends React.Component {
     }
 
     handleUndo() {
+        if(this.clicks>0){
+            this.clicks--;
+        }
         let move = this.state.move;
         this.noLinesDrawnYet = true;
         const squaresHistory = this.state.squaresHistory.slice();
@@ -272,6 +273,10 @@ class Board extends React.Component {
     }
 
     handleRedo() {
+        if(this.clicks===9){
+            return
+        }
+        this.clicks++;
         let move = this.state.move;
         move++;
         this.setState({
@@ -285,8 +290,8 @@ class Board extends React.Component {
 
     handleNewGame() {
         this.noLinesDrawnYet = true;
+        this.clicks = 0;
         this.setState({
-            clicks: 0,
             move: 0,
             squares: Array(9).fill(null),
             squaresHistory: Array(9).fill(null),
@@ -384,11 +389,11 @@ class Board extends React.Component {
 
         let status;
         console.log("Winner?: " + winner);
-        console.log("Click number: " + this.state.clicks);
+        console.log("Click number: " + this.clicks);
         if (winner) {
             status = 'Winner: ' + winner;
         } else {
-            if (this.state.clicks===9){
+            if (this.clicks===9){
                 status = 'Draw';  
             }
             else{
