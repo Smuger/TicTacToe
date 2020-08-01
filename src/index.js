@@ -19,10 +19,10 @@ const LineFirstRow = () => (
             color: "red",
             backgroundColor: "red",
             height: 5,
-            top: "5.2em",
-            position: "relative",
-                    
+            top: "8.5em",
+            position: "relative",    
             }}
+        className="LineFirstRow"
     />
 )
 
@@ -32,10 +32,10 @@ const LineSecondRow = () => (
             color: "red",
             backgroundColor: "red",
             height: 5,
-            top: "5.2em",
-            position: "relative",
-                        
+            top: "17.7em",
+            position: "relative",         
         }}
+        className="LineSecondRow"
     />
 )
 
@@ -45,10 +45,10 @@ const LineThirdRow = () => (
             color: "red",
             backgroundColor: "red",
             height: 5,
-            top: "5.2em",
-            position: "relative",
-                            
+            top: "26.8em",
+            position: "relative",              
         }}
+        className="LineThirdRow"
     />
 )
 
@@ -63,6 +63,7 @@ const LineFirstColumn = ({marginFromLeft}) => (
             marginLeft: marginFromLeft,
             left: "50%",
         }}
+        className="LineFirstColumn"
     />
 )
 
@@ -77,6 +78,7 @@ const LineSecondColumn = ({marginFromLeft}) => (
             marginLeft: marginFromLeft,
             left: "50%",
         }}
+        className="LineSecondColumn"
     />
 )
 
@@ -91,6 +93,7 @@ const LineThirdColumn = ({marginFromLeft}) => (
             marginLeft: marginFromLeft,
             left: "50%",
         }}
+        className="LineThirdColumn"
     />
 )
 
@@ -105,6 +108,7 @@ const LineLeftRightACross = ({rotation}) => (
             transform: rotation,
             left: "50%",
         }}
+        className="LineACross"
     />
 )
 
@@ -119,6 +123,7 @@ const LineRightLeftACross = ({rotation}) => (
             transform: rotation,
             left: "50%",
         }}
+        className="LineACross"
     />
 )
 
@@ -402,14 +407,17 @@ class Board extends React.Component {
         }
         return (
             <div>
-                
+                {!this.state.isHiddenLineFirstRow && <LineFirstRow />}
+                {!this.state.isHiddenLineSecondRow && <LineSecondRow />}
+                {!this.state.isHiddenLineThirdRow && <LineThirdRow />}
+
                 <div className="status">{status}</div>
                 <div className="board-row">
                 
-                {!this.state.isHiddenLineACrossLeftRight && <LineLeftRightACross rotation="rotate(-45deg)" />}
-                {!this.state.isHiddenLineACrossRightLeft && <LineRightLeftACross rotation="rotate(45deg)" />}
+                {!this.state.isHiddenLineACrossLeftRight && <LineLeftRightACross rotation="rotate(-45deg)"/>}
+                {!this.state.isHiddenLineACrossRightLeft && <LineRightLeftACross rotation="rotate(45deg)"/>}
 
-                {!this.state.isHiddenLineFirstRow && <LineFirstRow />}
+                
                     {this.renderSquare(0)}
                     {!this.state.isHiddenLineFirstColumn && <LineFirstColumn marginFromLeft="-129px"/>}
 
@@ -420,13 +428,13 @@ class Board extends React.Component {
                     {!this.state.isHiddenLineThirdColumn && <LineThirdColumn marginFromLeft="124px"/>}
                 </div>
                 <div className="board-row">
-                {!this.state.isHiddenLineSecondRow && <LineSecondRow />}
+                
                     {this.renderSquare(3)}
                     {this.renderSquare(4)}
                     {this.renderSquare(5)}
                 </div>
                 <div className="board-row">
-                {!this.state.isHiddenLineThirdRow && <LineThirdRow />}
+                
                     {this.renderSquare(6)}
                     {this.renderSquare(7)}
                     {this.renderSquare(8)}

@@ -5,6 +5,51 @@ body {
     height: 100vh;
 }
 
+@media(max-width:382px) {
+    .LineACross {
+        height: 230px !important;
+    }
+}
+
+@media(max-width:382px) {
+    .LineFirstColumn {
+        height: 217px !important;
+        margin-left: -82px !important;
+    }
+}
+
+@media(max-width:382px) {
+    .LineSecondColumn {
+        height: 217px !important;
+    }
+}
+
+@media(max-width:382px) {
+    .LineThirdColumn {
+        height: 217px !important;
+        margin-left: 76px !important;
+    }
+}
+
+@media(max-width:382px) {
+    .LineFirstRow {
+        top: 7em !important;
+    }
+}
+
+@media(max-width:382px) {
+    .LineSecondRow {
+        top: 12.6em !important;
+    }
+}
+
+@media(max-width:382px) {
+    .LineThirdRow {
+        top: 18.4em !important;
+    }
+}
+
+
 ol, ul {
     padding-left: 30px;
 }
@@ -53,6 +98,7 @@ ol, ul {
         transition: all 0.5s ease;
     }
 }
+
 .function-button {
     background: #fff;
     color: #000;
