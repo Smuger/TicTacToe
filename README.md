@@ -1,5 +1,5 @@
 ## Demo
-
+![Farmers Market Finder Demo](demo/ttt.gif)
 [https://itsrave.github.io/tictactoe-react/](https://itsrave.github.io/tictactoe-react/)
 ## Available Scripts
 
